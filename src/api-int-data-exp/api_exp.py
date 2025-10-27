@@ -117,9 +117,9 @@ if __name__ == "__main__":
     pretty_print_sample("Daily Visits (sample)", dv)
 
     # Example 2: GA sessions for a specific date, country, device
-    print("\nFetching GA sessions (date=20160801, country=United States, device_category=desktop)...")
-    ga = get_ga_sessions(date="20160801", country="United States", device_category="desktop", limit=3)
-    pretty_print_sample("GA Sessions (sample)", ga)
+    # print("\nFetching GA sessions (date=20160801, country=United States, device_category=desktop)...")
+    # ga = get_ga_sessions(date="20160801", country="United States", device_category="desktop", limit=3)
+    # pretty_print_sample("GA Sessions (sample)", ga)
 
     # Example 3: show how to page through daily visits (WARNING: might be many pages)
     # small example: only fetch limited pages by using limit=50 and stopping early if you want.

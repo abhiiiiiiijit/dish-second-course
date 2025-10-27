@@ -18,11 +18,9 @@ session.headers.update({
     "Accept": "application/json"
 })
 
-
-# --- 1. Daily Visits (Flat Structure) ---
-def get_daily_visits(page=1, limit=10, start_date=None, end_date=None):
+def get_daily_visits( start_date=None, end_date=None):
     """Fetch daily visit data with optional date range filters."""
-    params = {"page": page, "limit": limit}
+    params = {}
     if start_date:
         params["start_date"] = start_date
     if end_date:
@@ -39,8 +37,48 @@ def get_daily_visits(page=1, limit=10, start_date=None, end_date=None):
     else:
         print("[daily-visits] HTTP", response.status_code, ":", response.text)
         return None
+# --- 1. Daily Visits (Flat Structure) ---
+# def get_daily_visits(page=1, limit=10, start_date=None, end_date=None):
+#     """Fetch daily visit data with optional date range filters."""
+#     params = {"page": page, "limit": limit}
+#     if start_date:
+#         params["start_date"] = start_date
+#     if end_date:
+#         params["end_date"] = end_date
 
+#     url = f"{BASE_URL}/daily-visits"   # ✅ FIXED endpoint (added hyphen)
+#     response = session.get(url, params=params)
 
+#     if response.status_code == 200:
+#         data = response.json()
+#         print("\n=== Daily Visits Sample ===")
+#         print(json.dumps(data, indent=2))
+#         return data
+#     else:
+#         print("[daily-visits] HTTP", response.status_code, ":", response.text)
+#         return None
+
+# def get_ga_sessions(date=None, country=None, device_category=None):
+#     """Fetch GA session data with optional filters."""
+#     params = {}
+#     if date:
+#         params["date"] = date
+#     if country:
+#         params["country"] = country
+#     if device_category:
+#         params["device_category"] = device_category
+
+#     url = f"{BASE_URL}/ga-sessions-data"   # ✅ FIXED endpoint (added hyphens)
+#     response = session.get(url, params=params)
+
+#     if response.status_code == 200:
+#         data = response.json()
+#         print("\n=== GA Sessions Sample ===")
+#         print(json.dumps(data['pagination'], indent=2))
+#         return data
+#     else:
+#         print("[ga-sessions-data] HTTP", response.status_code, ":", response.text)
+#         return None
 # --- 2. GA Sessions (Nested Structure) ---
 def get_ga_sessions(page=1, limit=5, date=None, country=None, device_category=None):
     """Fetch GA session data with optional filters."""
@@ -66,59 +104,28 @@ def get_ga_sessions(page=1, limit=5, date=None, country=None, device_category=No
 
 
 
-def fetch_all_daily_visits(start_date: str, end_date: str, limit: int = 100) -> List[Dict[str, Any]]:
-    """
-    Example helper to page through all daily visits between start_date and end_date.
-    Use with caution — the API has many pages (example total_pages=153 in sample).
-    """
-    page = 1
-    all_records: List[Dict[str, Any]] = []
-
-    while True:
-        data = get_daily_visits(page=page, limit=limit, start_date=start_date, end_date=end_date)
-        if not data:
-            break
-
-        records = data.get("records") or []
-        all_records.extend(records)
-
-        pagination = data.get("pagination", {})
-        has_next = pagination.get("has_next", False)
-        if not has_next:
-            break
-
-        page += 1
-
-        # safety: avoid infinite loops
-        if page > 10000:
-            print("Reached page 10000, aborting")
-            break
-
-    return all_records
-
-
-def pretty_print_sample(title: str, data: Dict[str, Any], show_n: int = 2):
-    print(f"\n--- {title} ---")
-    if not data:
-        print("(no data)")
-        return
-    records = data.get("records", data)  # fallback to entire object
-    if isinstance(records, list):
-        sample = records[:show_n]
-        print(json.dumps(sample, indent=2))
-    else:
-        print(json.dumps(data, indent=2))
+# def pretty_print_sample(title: str, data: Dict[str, Any], show_n: int = 2):
+#     print(f"\n--- {title} ---")
+#     if not data:
+#         print("(no data)")
+#         return
+#     records = data.get("records", data)  # fallback to entire object
+#     if isinstance(records, list):
+#         sample = records[:show_n]
+#         print(json.dumps(sample, indent=2))
+#     else:
+#         print(json.dumps(data, indent=2))
 
 
 if __name__ == "__main__":
     # Example 1: daily visits for a small date window
-    print("Fetching daily visits (2016-08-01 to 2016-08-05)...")
-    dv = get_daily_visits( page = 1, limit=10)
-    pretty_print_sample("Daily Visits (sample)", dv)
+    # print("Fetching daily visits (2016-08-01 to 2016-08-05)...")
+    # dv = get_daily_visits()
+    # pretty_print_sample("Daily Visits (sample)", dv)
 
     # Example 2: GA sessions for a specific date, country, device
-    # print("\nFetching GA sessions (date=20160801, country=United States, device_category=desktop)...")
-    # ga = get_ga_sessions(date="20160801", country="United States", device_category="desktop", limit=3)
+    print("\nFetching GA sessions (date=20160801, country=United States, device_category=desktop)...")
+    ga = get_ga_sessions()
     # pretty_print_sample("GA Sessions (sample)", ga)
 
     # Example 3: show how to page through daily visits (WARNING: might be many pages)

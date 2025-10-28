@@ -18,29 +18,9 @@ session.headers.update({
     "Accept": "application/json"
 })
 
-def get_daily_visits( start_date=None, end_date=None):
-    """Fetch daily visit data with optional date range filters."""
-    params = {}
-    if start_date:
-        params["start_date"] = start_date
-    if end_date:
-        params["end_date"] = end_date
-
-    url = f"{BASE_URL}/daily-visits"   # ✅ FIXED endpoint (added hyphen)
-    response = session.get(url, params=params)
-
-    if response.status_code == 200:
-        data = response.json()
-        print("\n=== Daily Visits Sample ===")
-        print(json.dumps(data, indent=2))
-        return data
-    else:
-        print("[daily-visits] HTTP", response.status_code, ":", response.text)
-        return None
-# --- 1. Daily Visits (Flat Structure) ---
-# def get_daily_visits(page=1, limit=10, start_date=None, end_date=None):
+# def get_daily_visits( start_date=None, end_date=None):
 #     """Fetch daily visit data with optional date range filters."""
-#     params = {"page": page, "limit": limit}
+#     params = {}
 #     if start_date:
 #         params["start_date"] = start_date
 #     if end_date:
@@ -57,6 +37,26 @@ def get_daily_visits( start_date=None, end_date=None):
 #     else:
 #         print("[daily-visits] HTTP", response.status_code, ":", response.text)
 #         return None
+# --- 1. Daily Visits (Flat Structure) ---
+def get_daily_visits(page=1, limit=10, start_date=None, end_date=None):
+    """Fetch daily visit data with optional date range filters."""
+    params = {"page": page, "limit": limit}
+    if start_date:
+        params["start_date"] = start_date
+    if end_date:
+        params["end_date"] = end_date
+
+    url = f"{BASE_URL}/daily-visits"   # ✅ FIXED endpoint (added hyphen)
+    response = session.get(url, params=params)
+
+    if response.status_code == 200:
+        data = response.json()
+        print("\n=== Daily Visits Sample ===")
+        print(json.dumps(data, indent=2))
+        return data
+    else:
+        print("[daily-visits] HTTP", response.status_code, ":", response.text)
+        return None
 
 # def get_ga_sessions(date=None, country=None, device_category=None):
 #     """Fetch GA session data with optional filters."""

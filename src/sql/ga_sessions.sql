@@ -55,7 +55,10 @@ CREATE TABLE IF NOT EXISTS analytics.ga_sessions (
     pageTitle STRING,
     time INT64,
     type STRING
-  >>
+  >>,
+  load_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  loaded_by STRING DEFAULT SESSION_USER(),
+  source_file STRING
 )
 PARTITION BY date
 CLUSTER BY fullVisitorId, visitId;

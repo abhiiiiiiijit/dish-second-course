@@ -12,3 +12,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.gcp/service-account.json"
 source ~/.bashrc
 
 poetry run env | grep GOOGLE_APPLICATION_CREDENTIALS
+
+
+python3 src/etl/load_json_to_bigquery.py   --path "/data/daily_visits/"   --project "dish-second-course"   --table "analytics.daily_visits"

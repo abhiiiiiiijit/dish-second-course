@@ -60,4 +60,5 @@ CREATE TABLE IF NOT EXISTS analytics.ga_sessions (
   loaded_by STRING DEFAULT SESSION_USER(),
   source_file STRING
 )
-;
+PARTITION BY date
+CLUSTER BY fullVisitorId, visitId;

@@ -15,3 +15,7 @@ poetry run env | grep GOOGLE_APPLICATION_CREDENTIALS
 
 
 python3 src/etl/load_json_to_bigquery.py   --path "/data/daily_visits/"   --project "dish-second-course"   --table "analytics.daily_visits"
+
+python3 src/etl/bq_data_load.py   --path "data/daily_visits/"   --project "dish-second-course"   --table "dish-second-course.analytics.daily_visits"
+
+python3 src/etl/bq_data_load.py   --path "data/ga_sessions/"   --project "dish-second-course"   --table "dish-second-course.analytics.ga_sessions"

@@ -854,3 +854,11 @@
 [2025-11-01T04:25:43.815+0530] {logging_mixin.py:190} INFO - [2025-11-01T04:25:43.814+0530] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-11-01T04:25:43.833+0530] {logging_mixin.py:190} INFO - [2025-11-01T04:25:43.833+0530] {dag.py:4180} INFO - Setting next_dagrun for etl_google_analytics_dag to 2025-10-29 18:00:00+00:00, run_after=2025-11-05 06:00:00+00:00
 [2025-11-01T04:25:43.870+0530] {processor.py:208} INFO - Processing /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py took 0.452 seconds
+[2025-11-01T04:26:14.856+0530] {processor.py:186} INFO - Started process (PID=156141) to work on /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py
+[2025-11-01T04:26:14.859+0530] {processor.py:914} INFO - Processing file /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py for tasks to queue
+[2025-11-01T04:26:14.860+0530] {logging_mixin.py:190} INFO - [2025-11-01T04:26:14.859+0530] {dagbag.py:588} INFO - Filling up the DagBag from /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py
+[2025-11-01T04:26:15.122+0530] {logging_mixin.py:190} WARNING - /root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266 FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+[2025-11-01T04:26:15.122+0530] {processor.py:925} INFO - DAG(s) 'etl_google_analytics_dag' retrieved from /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py
+[2025-11-01T04:26:15.139+0530] {logging_mixin.py:190} INFO - [2025-11-01T04:26:15.139+0530] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-11-01T04:26:15.154+0530] {logging_mixin.py:190} INFO - [2025-11-01T04:26:15.154+0530] {dag.py:4180} INFO - Setting next_dagrun for etl_google_analytics_dag to 2025-10-29 18:00:00+00:00, run_after=2025-11-05 06:00:00+00:00
+[2025-11-01T04:26:15.238+0530] {processor.py:208} INFO - Processing /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py took 0.387 seconds

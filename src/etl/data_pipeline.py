@@ -1,32 +1,116 @@
 from data_extractor import fetch_daily_visits_by_date, fetch_ga_sessions_by_date
 from bq_data_load import process_directory
 from datetime import datetime
+from datetime import datetime
+import argparse
+import logging
+
 
 if __name__ == "__main__":
-    # Define date range for extraction
-    start_date = datetime(2016, 8, 1)
-    end_date = datetime(2016, 8, 1)  # Exclusive
 
-    # Fetch and save Daily Visits data
-    fetch_daily_visits_by_date(start_date, end_date, limit=50)
 
-    # Fetch and save GA Sessions data
-    fetch_ga_sessions_by_date(start_date, end_date, limit=50)
-
-    # # Load Daily Visits data into BigQuery
-    process_directory(
-        base_path="data/daily_visits/",
-        project_id="dish-second-course",
-        table_id="dish-second-course.analytics.daily_visits",
-        start_date = start_date ,
-        end_date = end_date
+    # -----------------------------------------------------------
+    # Initialize logger
+    # -----------------------------------------------------------
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s"
     )
 
-    # Load GA Sessions data into BigQuery
-    process_directory(
-        base_path="data/ga_sessions/",
-        project_id="dish-second-course",
-        table_id="dish-second-course.analytics.ga_sessions",
-        start_date = start_date,
-        end_date = end_date
+    # -----------------------------------------------------------
+    # Command line argument parsing
+    # -----------------------------------------------------------
+    parser = argparse.ArgumentParser(description="ETL Script for Daily Visits & GA Sessions")
+
+    parser.add_argument(
+        "--start-date",
+        type=str,
+        default="2016-08-01",
+        help="Start date for data extraction (YYYY-MM-DD). Default: 2016-08-01"
     )
+
+    parser.add_argument(
+        "--end-date",
+        type=str,
+        default="2016-08-02",  # exclusive end date
+        help="End date for data extraction (YYYY-MM-DD). Default: 2016-08-02"
+    )
+
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=50,
+        help="Record limit per API call. Default: 50"
+    )
+
+    parser.add_argument(
+        "--base-path",
+        type=str,
+        default="data/ga_sessions/",
+        help="Base directory for local storage. Default: data/ga_sessions/"
+    )
+
+    parser.add_argument(
+        "--project-id",
+        type=str,
+        default="dish-second-course",
+        help="BigQuery Project ID. Default: dish-second-course"
+    )
+
+    parser.add_argument(
+        "--table-id",
+        type=str,
+        default="dish-second-course.analytics.ga_sessions",
+        help="BigQuery Table ID. Default: dish-second-course.analytics.ga_sessions"
+    )
+
+    args = parser.parse_args()
+
+    # -----------------------------------------------------------
+    # Convert dates
+    # -----------------------------------------------------------
+    start_date = datetime.strptime(args.start_date, "%Y-%m-%d")
+    end_date = datetime.strptime(args.end_date, "%Y-%m-%d")
+
+    logging.info("Starting ETL process...")
+    logging.info(f"Start date: {start_date}")
+    logging.info(f"End date (exclusive): {end_date}")
+    logging.info(f"Limit: {args.limit}")
+    logging.info(f"Base path: {args.base_path}")
+    logging.info(f"Project ID: {args.project_id}")
+    logging.info(f"Table ID: {args.table_id}")
+
+    # -----------------------------------------------------------
+    # Fetch Daily Visits
+    # -----------------------------------------------------------
+    try:
+        fetch_daily_visits_by_date(start_date, end_date, limit=args.limit)
+        logging.info("Daily Visits fetched successfully.")
+    except Exception as e:
+        logging.error(f"Error fetching Daily Visits: {e}", exc_info=True)
+
+    # -----------------------------------------------------------
+    # Fetch GA Sessions
+    # -----------------------------------------------------------
+    try:
+        fetch_ga_sessions_by_date(start_date, end_date, limit=args.limit)
+        logging.info("GA Sessions fetched successfully.")
+    except Exception as e:
+        logging.error(f"Error fetching GA Sessions: {e}", exc_info=True)
+
+    # -----------------------------------------------------------
+    # Load into BigQuery
+    # -----------------------------------------------------------
+    try:
+        process_directory(
+            base_path=args.base_path,
+            project_id=args.project_id,
+            table_id=args.table_id,
+            start_date=start_date,
+            end_date=end_date,
+        )
+        logging.info("Data successfully loaded into BigQuery.")
+    except Exception as e:
+        logging.error(f"Error loading data into BigQuery: {e}", exc_info=True)
+
+    logging.info("ETL process completed.")

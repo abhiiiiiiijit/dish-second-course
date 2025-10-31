@@ -17,12 +17,16 @@ if __name__ == "__main__":
     process_directory(
         base_path="data/daily_visits/",
         project_id="dish-second-course",
-        table_id="dish-second-course.analytics.daily_visits"
+        table_id="dish-second-course.analytics.daily_visits",
+        start_date = start_date ,
+        end_date = end_date
     )
 
     # Load GA Sessions data into BigQuery
     process_directory(
         base_path="data/ga_sessions/",
         project_id="dish-second-course",
-        table_id="dish-second-course.analytics.ga_sessions"
+        table_id="dish-second-course.analytics.ga_sessions",
+        start_date = start_date,
+        end_date = end_date
     )

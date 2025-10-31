@@ -19,3 +19,31 @@ python3 src/etl/load_json_to_bigquery.py   --path "/data/daily_visits/"   --proj
 python3 src/etl/bq_data_load.py   --path "data/daily_visits/"   --project "dish-second-course"   --table "dish-second-course.analytics.daily_visits"
 
 python3 src/etl/bq_data_load.py   --path "data/ga_sessions/"   --project "dish-second-course"   --table "dish-second-course.analytics.ga_sessions"
+
+
+--------------------------------------------------------------------------------
+### Airflow
+
+poetry add "apache-airflow==2.10.2" "apache-airflow-providers-google==10.17.0"
+
+export AIRFLOW_HOME=$(pwd)/infra/airflow
+
+airflow db init
+
+airflow users create \
+    --username admin \
+    --firstname Abhijit \
+    --lastname Yadav \
+    --role Admin \
+    --email abhijitjan22@gmail.com
+
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+
+airflow db reset
+
+
+
+
+
+
+

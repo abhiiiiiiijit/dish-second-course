@@ -1,0 +1,748 @@
+[2025-11-01T04:02:47.380+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T04:02:47.409+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.ga_sessions_data_extration scheduled__2016-08-17T06:00:00+00:00 [queued]>
+[2025-11-01T04:02:47.428+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.ga_sessions_data_extration scheduled__2016-08-17T06:00:00+00:00 [queued]>
+[2025-11-01T04:02:47.429+0530] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-11-01T04:02:47.483+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): ga_sessions_data_extration> on 2016-08-17 06:00:00+00:00
+[2025-11-01T04:02:47.501+0530] {standard_task_runner.py:72} INFO - Started process 141372 to run task
+[2025-11-01T04:02:47.535+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'ga_sessions_data_extration', 'scheduled__2016-08-17T06:00:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmpbiidt8bw']
+[2025-11-01T04:02:47.548+0530] {standard_task_runner.py:105} INFO - Job 14: Subtask ga_sessions_data_extration
+[2025-11-01T04:02:47.789+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.ga_sessions_data_extration scheduled__2016-08-17T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T04:02:48.068+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='ga_sessions_data_extration' AIRFLOW_CTX_EXECUTION_DATE='2016-08-17T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2016-08-17T06:00:00+00:00'
+[2025-11-01T04:02:48.079+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T04:02:48.167+0530] {data_extractor.py:168} INFO - Starting GA Sessions extraction from 2016-08-10 to 2016-08-16
+[2025-11-01T04:02:48.168+0530] {data_extractor.py:174} INFO - Fetching GA Sessions for date 20160810...
+[2025-11-01T04:02:48.169+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'date': '20160810'}
+[2025-11-01T04:02:51.814+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": false,
+  "limit": 50,
+  "page": 1,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:02:51.815+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 50).
+[2025-11-01T04:02:51.815+0530] {data_extractor.py:85} INFO - Fetching page 2 with params: {'date': '20160810'}
+[2025-11-01T04:02:54.809+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 2,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:02:54.810+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 100).
+[2025-11-01T04:02:54.811+0530] {data_extractor.py:85} INFO - Fetching page 3 with params: {'date': '20160810'}
+[2025-11-01T04:02:57.838+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 3,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:02:57.839+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 150).
+[2025-11-01T04:02:57.839+0530] {data_extractor.py:85} INFO - Fetching page 4 with params: {'date': '20160810'}
+[2025-11-01T04:03:00.637+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 4,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:00.638+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 200).
+[2025-11-01T04:03:00.638+0530] {data_extractor.py:85} INFO - Fetching page 5 with params: {'date': '20160810'}
+[2025-11-01T04:03:03.409+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 5,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:03.410+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 250).
+[2025-11-01T04:03:03.410+0530] {data_extractor.py:85} INFO - Fetching page 6 with params: {'date': '20160810'}
+[2025-11-01T04:03:06.359+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 6,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:06.360+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 300).
+[2025-11-01T04:03:06.360+0530] {data_extractor.py:85} INFO - Fetching page 7 with params: {'date': '20160810'}
+[2025-11-01T04:03:09.048+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 7,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:09.049+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 350).
+[2025-11-01T04:03:09.050+0530] {data_extractor.py:85} INFO - Fetching page 8 with params: {'date': '20160810'}
+[2025-11-01T04:03:12.242+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 8,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:12.243+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 400).
+[2025-11-01T04:03:12.243+0530] {data_extractor.py:85} INFO - Fetching page 9 with params: {'date': '20160810'}
+[2025-11-01T04:03:14.991+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 9,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:14.992+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 450).
+[2025-11-01T04:03:14.993+0530] {data_extractor.py:85} INFO - Fetching page 10 with params: {'date': '20160810'}
+[2025-11-01T04:03:17.681+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 10,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:17.682+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 500).
+[2025-11-01T04:03:17.682+0530] {data_extractor.py:85} INFO - Fetching page 11 with params: {'date': '20160810'}
+[2025-11-01T04:03:21.014+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 11,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:21.014+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 550).
+[2025-11-01T04:03:21.015+0530] {data_extractor.py:85} INFO - Fetching page 12 with params: {'date': '20160810'}
+[2025-11-01T04:03:23.784+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 12,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:23.785+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 600).
+[2025-11-01T04:03:23.785+0530] {data_extractor.py:85} INFO - Fetching page 13 with params: {'date': '20160810'}
+[2025-11-01T04:03:26.334+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 13,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:26.334+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 650).
+[2025-11-01T04:03:26.335+0530] {data_extractor.py:85} INFO - Fetching page 14 with params: {'date': '20160810'}
+[2025-11-01T04:03:29.158+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 14,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:29.159+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 700).
+[2025-11-01T04:03:29.159+0530] {data_extractor.py:85} INFO - Fetching page 15 with params: {'date': '20160810'}
+[2025-11-01T04:03:31.723+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 15,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:31.723+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 750).
+[2025-11-01T04:03:31.723+0530] {data_extractor.py:85} INFO - Fetching page 16 with params: {'date': '20160810'}
+[2025-11-01T04:03:34.256+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 16,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:34.257+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 800).
+[2025-11-01T04:03:34.257+0530] {data_extractor.py:85} INFO - Fetching page 17 with params: {'date': '20160810'}
+[2025-11-01T04:03:37.103+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 17,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:37.104+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 850).
+[2025-11-01T04:03:37.104+0530] {data_extractor.py:85} INFO - Fetching page 18 with params: {'date': '20160810'}
+[2025-11-01T04:03:39.691+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 18,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:39.692+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 900).
+[2025-11-01T04:03:39.692+0530] {data_extractor.py:85} INFO - Fetching page 19 with params: {'date': '20160810'}
+[2025-11-01T04:03:42.389+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 19,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:42.390+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 950).
+[2025-11-01T04:03:42.390+0530] {data_extractor.py:85} INFO - Fetching page 20 with params: {'date': '20160810'}
+[2025-11-01T04:03:45.317+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 20,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:45.318+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1000).
+[2025-11-01T04:03:45.318+0530] {data_extractor.py:85} INFO - Fetching page 21 with params: {'date': '20160810'}
+[2025-11-01T04:03:47.887+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 21,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:47.888+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1050).
+[2025-11-01T04:03:47.888+0530] {data_extractor.py:85} INFO - Fetching page 22 with params: {'date': '20160810'}
+[2025-11-01T04:03:50.475+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 22,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:50.476+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1100).
+[2025-11-01T04:03:50.476+0530] {data_extractor.py:85} INFO - Fetching page 23 with params: {'date': '20160810'}
+[2025-11-01T04:03:53.120+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 23,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:53.121+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1150).
+[2025-11-01T04:03:53.121+0530] {data_extractor.py:85} INFO - Fetching page 24 with params: {'date': '20160810'}
+[2025-11-01T04:03:55.734+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 24,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:55.734+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1200).
+[2025-11-01T04:03:55.735+0530] {data_extractor.py:85} INFO - Fetching page 25 with params: {'date': '20160810'}
+[2025-11-01T04:03:58.390+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 25,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:03:58.391+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1250).
+[2025-11-01T04:03:58.391+0530] {data_extractor.py:85} INFO - Fetching page 26 with params: {'date': '20160810'}
+[2025-11-01T04:04:01.121+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 26,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:01.121+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1300).
+[2025-11-01T04:04:01.121+0530] {data_extractor.py:85} INFO - Fetching page 27 with params: {'date': '20160810'}
+[2025-11-01T04:04:04.053+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 27,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:04.054+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1350).
+[2025-11-01T04:04:04.054+0530] {data_extractor.py:85} INFO - Fetching page 28 with params: {'date': '20160810'}
+[2025-11-01T04:04:06.613+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 28,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:06.613+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1400).
+[2025-11-01T04:04:06.613+0530] {data_extractor.py:85} INFO - Fetching page 29 with params: {'date': '20160810'}
+[2025-11-01T04:04:09.250+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 29,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:09.251+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1450).
+[2025-11-01T04:04:09.251+0530] {data_extractor.py:85} INFO - Fetching page 30 with params: {'date': '20160810'}
+[2025-11-01T04:04:12.023+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 30,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:12.023+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1500).
+[2025-11-01T04:04:12.023+0530] {data_extractor.py:85} INFO - Fetching page 31 with params: {'date': '20160810'}
+[2025-11-01T04:04:14.513+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 31,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:14.513+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1550).
+[2025-11-01T04:04:14.513+0530] {data_extractor.py:85} INFO - Fetching page 32 with params: {'date': '20160810'}
+[2025-11-01T04:04:17.104+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 32,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:17.104+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1600).
+[2025-11-01T04:04:17.105+0530] {data_extractor.py:85} INFO - Fetching page 33 with params: {'date': '20160810'}
+[2025-11-01T04:04:19.702+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 33,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:19.702+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1650).
+[2025-11-01T04:04:19.702+0530] {data_extractor.py:85} INFO - Fetching page 34 with params: {'date': '20160810'}
+[2025-11-01T04:04:22.396+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 34,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:22.396+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1700).
+[2025-11-01T04:04:22.396+0530] {data_extractor.py:85} INFO - Fetching page 35 with params: {'date': '20160810'}
+[2025-11-01T04:04:25.062+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 35,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:25.062+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1750).
+[2025-11-01T04:04:25.062+0530] {data_extractor.py:85} INFO - Fetching page 36 with params: {'date': '20160810'}
+[2025-11-01T04:04:27.872+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 36,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:27.873+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1800).
+[2025-11-01T04:04:27.873+0530] {data_extractor.py:85} INFO - Fetching page 37 with params: {'date': '20160810'}
+[2025-11-01T04:04:30.601+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 37,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:30.602+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1850).
+[2025-11-01T04:04:30.602+0530] {data_extractor.py:85} INFO - Fetching page 38 with params: {'date': '20160810'}
+[2025-11-01T04:04:33.238+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 38,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:33.239+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1900).
+[2025-11-01T04:04:33.239+0530] {data_extractor.py:85} INFO - Fetching page 39 with params: {'date': '20160810'}
+[2025-11-01T04:04:35.832+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 39,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:35.832+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 1950).
+[2025-11-01T04:04:35.832+0530] {data_extractor.py:85} INFO - Fetching page 40 with params: {'date': '20160810'}
+[2025-11-01T04:04:38.318+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 40,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:38.319+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2000).
+[2025-11-01T04:04:38.319+0530] {data_extractor.py:85} INFO - Fetching page 41 with params: {'date': '20160810'}
+[2025-11-01T04:04:40.890+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 41,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:40.890+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2050).
+[2025-11-01T04:04:40.891+0530] {data_extractor.py:85} INFO - Fetching page 42 with params: {'date': '20160810'}
+[2025-11-01T04:04:43.536+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 42,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:43.537+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2100).
+[2025-11-01T04:04:43.537+0530] {data_extractor.py:85} INFO - Fetching page 43 with params: {'date': '20160810'}
+[2025-11-01T04:04:46.082+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 43,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:46.083+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2150).
+[2025-11-01T04:04:46.083+0530] {data_extractor.py:85} INFO - Fetching page 44 with params: {'date': '20160810'}
+[2025-11-01T04:04:48.657+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 44,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:48.658+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2200).
+[2025-11-01T04:04:48.658+0530] {data_extractor.py:85} INFO - Fetching page 45 with params: {'date': '20160810'}
+[2025-11-01T04:04:51.065+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 45,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:51.065+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2250).
+[2025-11-01T04:04:51.065+0530] {data_extractor.py:85} INFO - Fetching page 46 with params: {'date': '20160810'}
+[2025-11-01T04:04:53.661+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 46,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:53.662+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2300).
+[2025-11-01T04:04:53.662+0530] {data_extractor.py:85} INFO - Fetching page 47 with params: {'date': '20160810'}
+[2025-11-01T04:04:56.427+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 47,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:56.427+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2350).
+[2025-11-01T04:04:56.428+0530] {data_extractor.py:85} INFO - Fetching page 48 with params: {'date': '20160810'}
+[2025-11-01T04:04:58.949+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 48,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:04:58.950+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2400).
+[2025-11-01T04:04:58.950+0530] {data_extractor.py:85} INFO - Fetching page 49 with params: {'date': '20160810'}
+[2025-11-01T04:05:01.380+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 49,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:01.381+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2450).
+[2025-11-01T04:05:01.381+0530] {data_extractor.py:85} INFO - Fetching page 50 with params: {'date': '20160810'}
+[2025-11-01T04:05:03.862+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 50,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:03.863+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2500).
+[2025-11-01T04:05:03.863+0530] {data_extractor.py:85} INFO - Fetching page 51 with params: {'date': '20160810'}
+[2025-11-01T04:05:06.316+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 51,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:06.316+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2550).
+[2025-11-01T04:05:06.317+0530] {data_extractor.py:85} INFO - Fetching page 52 with params: {'date': '20160810'}
+[2025-11-01T04:05:08.953+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 52,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:08.954+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2600).
+[2025-11-01T04:05:08.954+0530] {data_extractor.py:85} INFO - Fetching page 53 with params: {'date': '20160810'}
+[2025-11-01T04:05:11.538+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 53,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:11.539+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2650).
+[2025-11-01T04:05:11.539+0530] {data_extractor.py:85} INFO - Fetching page 54 with params: {'date': '20160810'}
+[2025-11-01T04:05:14.036+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 54,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:14.036+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2700).
+[2025-11-01T04:05:14.036+0530] {data_extractor.py:85} INFO - Fetching page 55 with params: {'date': '20160810'}
+[2025-11-01T04:05:16.442+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 55,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:16.443+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 2750).
+[2025-11-01T04:05:16.443+0530] {data_extractor.py:85} INFO - Fetching page 56 with params: {'date': '20160810'}
+[2025-11-01T04:05:18.799+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": false,
+  "has_previous": true,
+  "limit": 50,
+  "page": 56,
+  "total_pages": 56,
+  "total_records": 2757
+}
+[2025-11-01T04:05:18.799+0530] {data_extractor.py:98} INFO - Fetched 7 records (total so far: 2757).
+[2025-11-01T04:05:18.800+0530] {data_extractor.py:101} INFO - Last page reached for params: {'date': '20160810'}
+[2025-11-01T04:05:19.019+0530] {data_extractor.py:64} INFO - Saved 2757 records to data/ga_sessions/date=20160810/part-591e3842.json
+[2025-11-01T04:05:19.021+0530] {data_extractor.py:174} INFO - Fetching GA Sessions for date 20160811...
+[2025-11-01T04:05:19.022+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'date': '20160811'}
+[2025-11-01T04:05:21.844+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": false,
+  "limit": 50,
+  "page": 1,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:21.845+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 50).
+[2025-11-01T04:05:21.845+0530] {data_extractor.py:85} INFO - Fetching page 2 with params: {'date': '20160811'}
+[2025-11-01T04:05:24.315+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 2,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:24.315+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 100).
+[2025-11-01T04:05:24.315+0530] {data_extractor.py:85} INFO - Fetching page 3 with params: {'date': '20160811'}
+[2025-11-01T04:05:26.767+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 3,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:26.768+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 150).
+[2025-11-01T04:05:26.768+0530] {data_extractor.py:85} INFO - Fetching page 4 with params: {'date': '20160811'}
+[2025-11-01T04:05:29.280+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 4,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:29.281+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 200).
+[2025-11-01T04:05:29.281+0530] {data_extractor.py:85} INFO - Fetching page 5 with params: {'date': '20160811'}
+[2025-11-01T04:05:31.951+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 5,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:31.952+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 250).
+[2025-11-01T04:05:31.952+0530] {data_extractor.py:85} INFO - Fetching page 6 with params: {'date': '20160811'}
+[2025-11-01T04:05:34.479+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 6,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:34.480+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 300).
+[2025-11-01T04:05:34.480+0530] {data_extractor.py:85} INFO - Fetching page 7 with params: {'date': '20160811'}
+[2025-11-01T04:05:36.903+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 7,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:36.904+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 350).
+[2025-11-01T04:05:36.904+0530] {data_extractor.py:85} INFO - Fetching page 8 with params: {'date': '20160811'}
+[2025-11-01T04:05:39.226+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 8,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:39.226+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 400).
+[2025-11-01T04:05:39.226+0530] {data_extractor.py:85} INFO - Fetching page 9 with params: {'date': '20160811'}
+[2025-11-01T04:05:41.767+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 9,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:41.768+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 450).
+[2025-11-01T04:05:41.768+0530] {data_extractor.py:85} INFO - Fetching page 10 with params: {'date': '20160811'}
+[2025-11-01T04:05:44.217+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 10,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:44.217+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 500).
+[2025-11-01T04:05:44.217+0530] {data_extractor.py:85} INFO - Fetching page 11 with params: {'date': '20160811'}
+[2025-11-01T04:05:46.768+0530] {api_client.py:83} INFO - Fetched GA sessions with pagination info: {
+  "has_next": true,
+  "has_previous": true,
+  "limit": 50,
+  "page": 11,
+  "total_pages": 54,
+  "total_records": 2667
+}
+[2025-11-01T04:05:46.769+0530] {data_extractor.py:98} INFO - Fetched 50 records (total so far: 550).
+[2025-11-01T04:05:46.769+0530] {data_extractor.py:85} INFO - Fetching page 12 with params: {'date': '20160811'}
+[2025-11-01T04:05:48.080+0530] {timeout.py:68} ERROR - Process timed out, PID: 141372
+[2025-11-01T04:05:48.116+0530] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py", line 60, in wrapper_ga_sessions_extraction
+    fetch_ga_sessions_by_date(start_date=start_date, end_date=end_date,limit=50)
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/data_extractor.py", line 177, in fetch_ga_sessions_by_date
+    day_data = fetch_all_paginated_data(
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/data_extractor.py", line 86, in fetch_all_paginated_data
+    data = fetch_function(page=page, limit=limit, **kwargs)
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/api_client.py", line 81, in get_ga_sessions
+    data = make_api_request("ga-sessions-data", params)
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/api_client.py", line 30, in make_api_request
+    response = session.get(url, params=params, timeout=TIMEOUT)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/urllib3/connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1303, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1159, in read
+    return self._sslobj.read(len, buffer)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: Timeout, PID: 141372
+[2025-11-01T04:05:48.151+0530] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_google_analytics_dag, task_id=ga_sessions_data_extration, run_id=scheduled__2016-08-17T06:00:00+00:00, execution_date=20160817T060000, start_date=20251031T223247, end_date=20251031T223548
+[2025-11-01T04:05:48.184+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T04:05:48.215+0530] {local_task_job_runner.py:266} INFO - Task exited with return code 2
+[2025-11-01T04:05:48.273+0530] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-01T04:05:48.274+0530] {local_task_job_runner.py:245} INFO - ::endgroup::

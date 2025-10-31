@@ -1,0 +1,96 @@
+[2025-11-01T03:23:06.546+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T03:23:06.575+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_bq_ingestion scheduled__2025-10-29T06:00:00+00:00 [queued]>
+[2025-11-01T03:23:06.588+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_bq_ingestion scheduled__2025-10-29T06:00:00+00:00 [queued]>
+[2025-11-01T03:23:06.589+0530] {taskinstance.py:2866} INFO - Starting attempt 2 of 4
+[2025-11-01T03:23:06.627+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): daily_visits_bq_ingestion> on 2025-10-29 06:00:00+00:00
+[2025-11-01T03:23:06.643+0530] {standard_task_runner.py:72} INFO - Started process 117003 to run task
+[2025-11-01T03:23:06.679+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'daily_visits_bq_ingestion', 'scheduled__2025-10-29T06:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmp5vcvvgtw']
+[2025-11-01T03:23:06.689+0530] {standard_task_runner.py:105} INFO - Job 9: Subtask daily_visits_bq_ingestion
+[2025-11-01T03:23:07.142+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.daily_visits_bq_ingestion scheduled__2025-10-29T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T03:23:07.477+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='daily_visits_bq_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2025-10-29T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-10-29T06:00:00+00:00'
+[2025-11-01T03:23:07.481+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T03:23:19.393+0530] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py", line 54, in wrapper_daily_visits_ingestion
+    process_directory_by_date_range(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.daily_visits", base_path="data/daily_visits/")
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/bq_data_load.py", line 132, in process_directory_by_date_range
+    bq_client = bigquery.Client(project=project_id)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/cloud/bigquery/client.py", line 261, in __init__
+    super(Client, self).__init__(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/cloud/client/__init__.py", line 339, in __init__
+    Client.__init__(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/cloud/client/__init__.py", line 196, in __init__
+    credentials, _ = google.auth.default(scopes=scopes)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/auth/_default.py", line 739, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+[2025-11-01T03:23:19.447+0530] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_google_analytics_dag, task_id=daily_visits_bq_ingestion, run_id=scheduled__2025-10-29T06:00:00+00:00, execution_date=20251029T060000, start_date=20251031T215306, end_date=20251031T215319
+[2025-11-01T03:23:19.524+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T03:23:19.525+0530] {standard_task_runner.py:124} ERROR - Failed to execute job 9 for task daily_visits_bq_ingestion (Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.; 117003)
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py", line 54, in wrapper_daily_visits_ingestion
+    process_directory_by_date_range(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.daily_visits", base_path="data/daily_visits/")
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/bq_data_load.py", line 132, in process_directory_by_date_range
+    bq_client = bigquery.Client(project=project_id)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/cloud/bigquery/client.py", line 261, in __init__
+    super(Client, self).__init__(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/cloud/client/__init__.py", line 339, in __init__
+    Client.__init__(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/cloud/client/__init__.py", line 196, in __init__
+    credentials, _ = google.auth.default(scopes=scopes)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/google/auth/_default.py", line 739, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+[2025-11-01T03:23:19.605+0530] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-11-01T03:23:19.634+0530] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-01T03:23:19.636+0530] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,80 @@
+[2025-11-01T03:16:07.991+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T03:16:08.009+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_data_extration scheduled__2025-10-29T06:00:00+00:00 [queued]>
+[2025-11-01T03:16:08.023+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_data_extration scheduled__2025-10-29T06:00:00+00:00 [queued]>
+[2025-11-01T03:16:08.023+0530] {taskinstance.py:2866} INFO - Starting attempt 3 of 3
+[2025-11-01T03:16:08.061+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): daily_visits_data_extration> on 2025-10-29 06:00:00+00:00
+[2025-11-01T03:16:08.069+0530] {standard_task_runner.py:72} INFO - Started process 112138 to run task
+[2025-11-01T03:16:08.073+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'daily_visits_data_extration', 'scheduled__2025-10-29T06:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmpmk5772z8']
+[2025-11-01T03:16:08.076+0530] {standard_task_runner.py:105} INFO - Job 6: Subtask daily_visits_data_extration
+[2025-11-01T03:16:08.960+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.daily_visits_data_extration scheduled__2025-10-29T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T03:16:09.152+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='daily_visits_data_extration' AIRFLOW_CTX_EXECUTION_DATE='2025-10-29T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-10-29T06:00:00+00:00'
+[2025-11-01T03:16:09.159+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T03:16:09.211+0530] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py", line 50, in wrapper_daily_visits_extraction
+    fetch_daily_visits_by_date(start_date=start_date, end_date=end_date, limit=50)
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/data_extractor.py", line 131, in fetch_daily_visits_by_date
+    start_date.date(), end_date.date())
+AttributeError: 'str' object has no attribute 'date'
+[2025-11-01T03:16:09.230+0530] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=etl_google_analytics_dag, task_id=daily_visits_data_extration, run_id=scheduled__2025-10-29T06:00:00+00:00, execution_date=20251029T060000, start_date=20251031T214608, end_date=20251031T214609
+[2025-11-01T03:16:09.265+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T03:16:09.266+0530] {standard_task_runner.py:124} ERROR - Failed to execute job 6 for task daily_visits_data_extration ('str' object has no attribute 'date'; 112138)
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/dish-second-course-SaEmTrMc-py3.10/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py", line 50, in wrapper_daily_visits_extraction
+    fetch_daily_visits_by_date(start_date=start_date, end_date=end_date, limit=50)
+  File "/home/adminabhi/gitrepo/dish-second-course/src/etl/data_extractor.py", line 131, in fetch_daily_visits_by_date
+    start_date.date(), end_date.date())
+AttributeError: 'str' object has no attribute 'date'
+[2025-11-01T03:16:09.295+0530] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-11-01T03:16:09.320+0530] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-01T03:16:09.340+0530] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,55 @@
+[2025-11-01T03:49:43.528+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T03:49:43.544+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_data_extration scheduled__2016-08-17T06:00:00+00:00 [queued]>
+[2025-11-01T03:49:43.554+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_data_extration scheduled__2016-08-17T06:00:00+00:00 [queued]>
+[2025-11-01T03:49:43.554+0530] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-11-01T03:49:43.589+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): daily_visits_data_extration> on 2016-08-17 06:00:00+00:00
+[2025-11-01T03:49:43.593+0530] {standard_task_runner.py:72} INFO - Started process 130555 to run task
+[2025-11-01T03:49:43.597+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'daily_visits_data_extration', 'scheduled__2016-08-17T06:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmp1pp1rliq']
+[2025-11-01T03:49:43.600+0530] {standard_task_runner.py:105} INFO - Job 6: Subtask daily_visits_data_extration
+[2025-11-01T03:49:43.706+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.daily_visits_data_extration scheduled__2016-08-17T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T03:49:43.827+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='daily_visits_data_extration' AIRFLOW_CTX_EXECUTION_DATE='2016-08-17T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2016-08-17T06:00:00+00:00'
+[2025-11-01T03:49:43.829+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T03:49:43.846+0530] {data_extractor.py:130} INFO - Starting Daily Visits extraction from 2016-08-10 to 2016-08-16
+[2025-11-01T03:49:43.847+0530] {data_extractor.py:136} INFO - Fetching Daily Visits for date 2016-08-10...
+[2025-11-01T03:49:43.847+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'start_date': '2016-08-10', 'end_date': '2016-08-10'}
+[2025-11-01T03:49:46.581+0530] {api_client.py:61} INFO - Fetched 1 daily visits.
+[2025-11-01T03:49:46.582+0530] {data_extractor.py:98} INFO - Fetched 1 records (total so far: 1).
+[2025-11-01T03:49:46.583+0530] {data_extractor.py:101} INFO - Last page reached for params: {'start_date': '2016-08-10', 'end_date': '2016-08-10'}
+[2025-11-01T03:49:46.584+0530] {data_extractor.py:64} INFO - Saved 1 records to data/daily_visits/date=2016-08-10/part-9ccf6e5e.json
+[2025-11-01T03:49:46.585+0530] {data_extractor.py:136} INFO - Fetching Daily Visits for date 2016-08-11...
+[2025-11-01T03:49:46.586+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'start_date': '2016-08-11', 'end_date': '2016-08-11'}
+[2025-11-01T03:49:49.141+0530] {api_client.py:61} INFO - Fetched 1 daily visits.
+[2025-11-01T03:49:49.142+0530] {data_extractor.py:98} INFO - Fetched 1 records (total so far: 1).
+[2025-11-01T03:49:49.143+0530] {data_extractor.py:101} INFO - Last page reached for params: {'start_date': '2016-08-11', 'end_date': '2016-08-11'}
+[2025-11-01T03:49:49.144+0530] {data_extractor.py:64} INFO - Saved 1 records to data/daily_visits/date=2016-08-11/part-409e1e8f.json
+[2025-11-01T03:49:49.145+0530] {data_extractor.py:136} INFO - Fetching Daily Visits for date 2016-08-12...
+[2025-11-01T03:49:49.145+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'start_date': '2016-08-12', 'end_date': '2016-08-12'}
+[2025-11-01T03:49:51.721+0530] {api_client.py:61} INFO - Fetched 1 daily visits.
+[2025-11-01T03:49:51.722+0530] {data_extractor.py:98} INFO - Fetched 1 records (total so far: 1).
+[2025-11-01T03:49:51.722+0530] {data_extractor.py:101} INFO - Last page reached for params: {'start_date': '2016-08-12', 'end_date': '2016-08-12'}
+[2025-11-01T03:49:51.722+0530] {data_extractor.py:64} INFO - Saved 1 records to data/daily_visits/date=2016-08-12/part-9544d646.json
+[2025-11-01T03:49:51.723+0530] {data_extractor.py:136} INFO - Fetching Daily Visits for date 2016-08-13...
+[2025-11-01T03:49:51.723+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'start_date': '2016-08-13', 'end_date': '2016-08-13'}
+[2025-11-01T03:49:54.452+0530] {api_client.py:61} INFO - Fetched 1 daily visits.
+[2025-11-01T03:49:54.453+0530] {data_extractor.py:98} INFO - Fetched 1 records (total so far: 1).
+[2025-11-01T03:49:54.453+0530] {data_extractor.py:101} INFO - Last page reached for params: {'start_date': '2016-08-13', 'end_date': '2016-08-13'}
+[2025-11-01T03:49:54.454+0530] {data_extractor.py:64} INFO - Saved 1 records to data/daily_visits/date=2016-08-13/part-5c4455a5.json
+[2025-11-01T03:49:54.455+0530] {data_extractor.py:136} INFO - Fetching Daily Visits for date 2016-08-14...
+[2025-11-01T03:49:54.455+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'start_date': '2016-08-14', 'end_date': '2016-08-14'}
+[2025-11-01T03:49:56.981+0530] {api_client.py:61} INFO - Fetched 1 daily visits.
+[2025-11-01T03:49:56.982+0530] {data_extractor.py:98} INFO - Fetched 1 records (total so far: 1).
+[2025-11-01T03:49:56.982+0530] {data_extractor.py:101} INFO - Last page reached for params: {'start_date': '2016-08-14', 'end_date': '2016-08-14'}
+[2025-11-01T03:49:56.983+0530] {data_extractor.py:64} INFO - Saved 1 records to data/daily_visits/date=2016-08-14/part-aa03b26d.json
+[2025-11-01T03:49:56.983+0530] {data_extractor.py:136} INFO - Fetching Daily Visits for date 2016-08-15...
+[2025-11-01T03:49:56.983+0530] {data_extractor.py:85} INFO - Fetching page 1 with params: {'start_date': '2016-08-15', 'end_date': '2016-08-15'}
+[2025-11-01T03:49:59.826+0530] {api_client.py:61} INFO - Fetched 1 daily visits.
+[2025-11-01T03:49:59.827+0530] {data_extractor.py:98} INFO - Fetched 1 records (total so far: 1).
+[2025-11-01T03:49:59.828+0530] {data_extractor.py:101} INFO - Last page reached for params: {'start_date': '2016-08-15', 'end_date': '2016-08-15'}
+[2025-11-01T03:49:59.829+0530] {data_extractor.py:64} INFO - Saved 1 records to data/daily_visits/date=2016-08-15/part-6b94904d.json
+[2025-11-01T03:49:59.830+0530] {data_extractor.py:157} INFO - ✅ Completed Daily Visits extraction for all dates.
+[2025-11-01T03:49:59.830+0530] {python.py:240} INFO - Done. Returned value was: None
+[2025-11-01T03:49:59.841+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T03:49:59.842+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_google_analytics_dag, task_id=daily_visits_data_extration, run_id=scheduled__2016-08-17T06:00:00+00:00, execution_date=20160817T060000, start_date=20251031T221943, end_date=20251031T221959
+[2025-11-01T03:49:59.927+0530] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-01T03:49:59.969+0530] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-01T03:49:59.989+0530] {local_task_job_runner.py:245} INFO - ::endgroup::

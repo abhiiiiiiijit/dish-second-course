@@ -12,7 +12,7 @@ from src.etl.data_extractor import (
     fetch_ga_sessions_by_date
 )
 from src.etl import api_client
-from src.etl.data_pipeline import process_directory_by_date_range
+from src.etl.bq_data_load import process_directory_by_date_range
 
 # DAG configuration
 default_args = {
@@ -43,7 +43,7 @@ with DAG(
         """
         end_date = execution_date - timedelta(days=1)
         start_date = execution_date - timedelta(days=7)
-        return start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d")
+        return start_date, end_date
 
     def wrapper_daily_visits_extraction(**context):
         start_date, end_date = compute_date_range(context["execution_date"])
@@ -51,6 +51,8 @@ with DAG(
 
     def wrapper_daily_visits_ingestion(**context):
         start_date, end_date = compute_date_range(context["execution_date"])
+        start_date = start_date.strftime("%Y-%m-%d")
+        end_date = end_date.strftime("%Y-%m-%d")
         process_directory_by_date_range(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.daily_visits", base_path="data/daily_visits/")
 
     def wrapper_ga_sessions_extraction(**context):
@@ -59,6 +61,8 @@ with DAG(
 
     def wrapper_ga_sessions_ingestion(**context):
         start_date, end_date = compute_date_range(context["execution_date"])
+        start_date = start_date.strftime("%Y-%m-%d")
+        end_date = end_date.strftime("%Y-%m-%d")
         process_directory_by_date_range(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.ga_sessions", base_path="data/ga_sessions/")
 
     # Define the tasks

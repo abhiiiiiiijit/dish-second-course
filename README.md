@@ -26,7 +26,7 @@ python3 src/etl/bq_data_load.py   --path "data/ga_sessions/"   --project "dish-s
 
 poetry add "apache-airflow==2.10.2" "apache-airflow-providers-google==10.17.0"
 
-export AIRFLOW_HOME=$(pwd)/infra/airflow
+export AIRFLOW_HOME=$(pwd)
 
 airflow db init
 
@@ -40,6 +40,8 @@ airflow users create \
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
 
 airflow db reset
+
+airflow standalone
 
 
 

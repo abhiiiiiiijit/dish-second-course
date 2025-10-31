@@ -1,0 +1,36 @@
+[2025-11-01T04:12:11.694+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T04:12:11.727+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.ga_sessions_bq_ingestion scheduled__2016-08-10T06:00:00+00:00 [None]>
+[2025-11-01T04:12:11.738+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.ga_sessions_bq_ingestion scheduled__2016-08-10T06:00:00+00:00 [None]>
+[2025-11-01T04:12:11.739+0530] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2025-11-01T04:12:11.772+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): ga_sessions_bq_ingestion> on 2016-08-10 06:00:00+00:00
+[2025-11-01T04:12:11.776+0530] {standard_task_runner.py:72} INFO - Started process 149373 to run task
+[2025-11-01T04:12:11.779+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'ga_sessions_bq_ingestion', 'scheduled__2016-08-10T06:00:00+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmpty6ctjox']
+[2025-11-01T04:12:11.780+0530] {standard_task_runner.py:105} INFO - Job 22: Subtask ga_sessions_bq_ingestion
+[2025-11-01T04:12:11.826+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.ga_sessions_bq_ingestion scheduled__2016-08-10T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T04:12:11.910+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='ga_sessions_bq_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2016-08-10T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2016-08-10T06:00:00+00:00'
+[2025-11-01T04:12:11.912+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T04:12:11.969+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/ga_sessions/date=20160803
+[2025-11-01T04:12:12.472+0530] {bq_data_load.py:56} INFO - Loaded 2890 records from data/ga_sessions/date=20160803/part-45979793.json
+[2025-11-01T04:12:12.497+0530] {bq_data_load.py:91} INFO - 📤 Loading 2890 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:31.134+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 2890 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:31.134+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/ga_sessions/date=20160804
+[2025-11-01T04:12:31.273+0530] {bq_data_load.py:56} INFO - Loaded 3161 records from data/ga_sessions/date=20160804/part-4fac13ff.json
+[2025-11-01T04:12:31.303+0530] {bq_data_load.py:91} INFO - 📤 Loading 3161 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:38.504+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 3161 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:38.505+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/ga_sessions/date=20160805
+[2025-11-01T04:12:38.652+0530] {bq_data_load.py:56} INFO - Loaded 2702 records from data/ga_sessions/date=20160805/part-3130723e.json
+[2025-11-01T04:12:38.678+0530] {bq_data_load.py:91} INFO - 📤 Loading 2702 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:44.799+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 2702 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:44.799+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/ga_sessions/date=20160806
+[2025-11-01T04:12:44.836+0530] {bq_data_load.py:56} INFO - Loaded 1663 records from data/ga_sessions/date=20160806/part-236f3571.json
+[2025-11-01T04:12:44.852+0530] {bq_data_load.py:91} INFO - 📤 Loading 1663 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:57.114+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1663 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T04:12:57.114+0530] {bq_data_load.py:168} INFO - ⏭️ No directories found for date 2016-08-07
+[2025-11-01T04:12:57.114+0530] {bq_data_load.py:168} INFO - ⏭️ No directories found for date 2016-08-08
+[2025-11-01T04:12:57.115+0530] {bq_data_load.py:168} INFO - ⏭️ No directories found for date 2016-08-09
+[2025-11-01T04:12:57.115+0530] {python.py:240} INFO - Done. Returned value was: None
+[2025-11-01T04:12:57.125+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T04:12:57.125+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_google_analytics_dag, task_id=ga_sessions_bq_ingestion, run_id=scheduled__2016-08-10T06:00:00+00:00, execution_date=20160810T060000, start_date=20251031T224211, end_date=20251031T224257
+[2025-11-01T04:12:57.185+0530] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-01T04:12:57.193+0530] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-01T04:12:57.194+0530] {local_task_job_runner.py:245} INFO - ::endgroup::

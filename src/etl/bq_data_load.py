@@ -9,8 +9,8 @@ from google.cloud import bigquery
 from typing import List
 import getpass 
 import time
-from ga_sessions_schema import GA_SESSIONS_SCHEMA
-from daily_visits_schema import DAILY_VISIT_SCHEMA
+from src.etl.ga_sessions_schema import GA_SESSIONS_SCHEMA
+from src.etl.daily_visits_schema import DAILY_VISIT_SCHEMA
 
 # -----------------------------
 # Logging Configuration

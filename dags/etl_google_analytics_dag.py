@@ -1,11 +1,18 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+import os
+import sys
+# Get project root (two levels up from dags/)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(PROJECT_ROOT)
+
 from src.etl.data_extractor import (
     fetch_daily_visits_by_date,
     fetch_ga_sessions_by_date
 )
-from src.etl.data_pipeline import process_directory
+from src.etl import api_client
+from src.etl.data_pipeline import process_directory_by_date_range
 
 # DAG configuration
 default_args = {
@@ -44,7 +51,7 @@ with DAG(
 
     def wrapper_daily_visits_ingestion(**context):
         start_date, end_date = compute_date_range(context["execution_date"])
-        process_directory(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.daily_visits", base_path="data/daily_visits/")
+        process_directory_by_date_range(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.daily_visits", base_path="data/daily_visits/")
 
     def wrapper_ga_sessions_extraction(**context):
         start_date, end_date = compute_date_range(context["execution_date"])
@@ -52,7 +59,7 @@ with DAG(
 
     def wrapper_ga_sessions_ingestion(**context):
         start_date, end_date = compute_date_range(context["execution_date"])
-        process_directory(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.ga_sessions", base_path="data/ga_sessions/")
+        process_directory_by_date_range(start_date=start_date, end_date=end_date, project_id="dish-second-course", table_id="dish-second-course.analytics.ga_sessions", base_path="data/ga_sessions/")
 
     # Define the tasks
     daily_visits_extraction = PythonOperator(

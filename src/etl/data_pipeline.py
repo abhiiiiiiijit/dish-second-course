@@ -1,5 +1,5 @@
-from data_extractor import fetch_daily_visits_by_date, fetch_ga_sessions_by_date
-from bq_data_load import process_directory
+from src.etl.data_extractor import fetch_daily_visits_by_date, fetch_ga_sessions_by_date
+from src.etl.bq_data_load import process_directory_by_date_range
 from datetime import datetime
 from datetime import datetime
 import argparse
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     # Load into BigQuery
     # -----------------------------------------------------------
     try:
-        process_directory(
+        process_directory_by_date_range(
             base_path=args.base_path,
             project_id=args.project_id,
             table_id=args.table_id,

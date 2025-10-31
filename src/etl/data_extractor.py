@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 from collections import defaultdict
 
-from api_client import get_daily_visits, get_ga_sessions
+from src.etl.api_client import get_daily_visits, get_ga_sessions
 
 # === Logging Configuration ===
 logging.basicConfig(

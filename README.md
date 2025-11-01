@@ -28,6 +28,8 @@ poetry add "apache-airflow==2.10.2" "apache-airflow-providers-google==10.17.0"
 
 export AIRFLOW_HOME=$(pwd)
 
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.gcp/service-account.json"
+
 airflow db init
 
 airflow users create \
@@ -40,6 +42,8 @@ airflow users create \
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
 
 airflow db reset
+
+export AIRFLOW__CORE__DAGS_FOLDER=/home/adminabhi/gitrepo/dish-second-course/src/etl
 
 airflow standalone
 

@@ -1,0 +1,31 @@
+[2025-11-01T15:18:23.554+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T15:18:23.563+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.ga_sessions_bq_ingestion scheduled__2016-08-10T06:00:00+00:00 [queued]>
+[2025-11-01T15:18:23.569+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.ga_sessions_bq_ingestion scheduled__2016-08-10T06:00:00+00:00 [queued]>
+[2025-11-01T15:18:23.570+0530] {taskinstance.py:2866} INFO - Starting attempt 2 of 4
+[2025-11-01T15:18:23.598+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): ga_sessions_bq_ingestion> on 2016-08-10 06:00:00+00:00
+[2025-11-01T15:18:23.601+0530] {standard_task_runner.py:72} INFO - Started process 71090 to run task
+[2025-11-01T15:18:23.605+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'ga_sessions_bq_ingestion', 'scheduled__2016-08-10T06:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmpba23bjt3']
+[2025-11-01T15:18:23.606+0530] {standard_task_runner.py:105} INFO - Job 34: Subtask ga_sessions_bq_ingestion
+[2025-11-01T15:18:23.649+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.ga_sessions_bq_ingestion scheduled__2016-08-10T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T15:18:23.711+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='ga_sessions_bq_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2016-08-10T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2016-08-10T06:00:00+00:00'
+[2025-11-01T15:18:23.712+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T15:18:23.797+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/ga_sessions/date=20160803
+[2025-11-01T15:18:24.119+0530] {bq_data_load.py:56} INFO - Loaded 2890 records from data/ga_sessions/date=20160803/part-45979793.json
+[2025-11-01T15:18:24.141+0530] {bq_data_load.py:91} INFO - 📤 Loading 2890 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:18:35.102+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 2890 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:18:35.178+0530] {bq_data_load.py:56} INFO - Loaded 2890 records from data/ga_sessions/date=20160803/part-286beec3.json
+[2025-11-01T15:18:35.215+0530] {bq_data_load.py:91} INFO - 📤 Loading 2890 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:18:43.690+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 2890 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:18:43.691+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/ga_sessions/date=20160804
+[2025-11-01T15:18:43.788+0530] {bq_data_load.py:56} INFO - Loaded 3161 records from data/ga_sessions/date=20160804/part-91659e2d.json
+[2025-11-01T15:18:43.818+0530] {bq_data_load.py:91} INFO - 📤 Loading 3161 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:18:59.524+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 3161 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:18:59.621+0530] {bq_data_load.py:56} INFO - Loaded 3161 records from data/ga_sessions/date=20160804/part-4fac13ff.json
+[2025-11-01T15:18:59.652+0530] {bq_data_load.py:91} INFO - 📤 Loading 3161 rows into dish-second-course.analytics.ga_sessions
+[2025-11-01T15:19:14.007+0530] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2025-11-01T15:19:14.008+0530] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-11-01T15:19:14.010+0530] {process_utils.py:132} INFO - Sending 15 to group 71090. PIDs of all processes in the group: [71090]
+[2025-11-01T15:19:14.010+0530] {process_utils.py:87} INFO - Sending the signal 15 to group 71090
+[2025-11-01T15:19:14.010+0530] {taskinstance.py:3093} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-11-01T15:19:14.044+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T15:19:14.064+0530] {process_utils.py:80} INFO - Process psutil.Process(pid=71090, status='terminated', exitcode=0) (71090) terminated with exit code 0

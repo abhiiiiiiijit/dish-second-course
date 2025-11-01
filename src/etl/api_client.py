@@ -5,7 +5,8 @@ from typing import Optional, Dict, Any
 
 # === Configuration ===
 BASE_URL = "https://dish-second-course-gateway-2tximoqc.nw.gateway.dev"
-API_KEY = "AIzaSyDMMWBOHgMG1u7P9jX9neaUQHY2vwlBTbM"
+################ API_KEY can be moved to env variable for better security or gcp secret manager#######################
+API_KEY = "AIzaSyDMMWBOHgMG1u7P9jX9neaUQHY2vwlBTbM"  
 TIMEOUT = 10  # seconds
 
 # === Logging Setup ===

@@ -898,3 +898,83 @@ File Path                                                                    PID
 /home/adminabhi/gitrepo/dish-second-course/dags/etl_google_analytics_dag.py                           1           0  0.40s           2025-10-31T22:56:15                      12
 ================================================================================
 [2025-11-01T04:26:29.036+0530] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-01T15:13:03.088+0530] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-01T15:13:03.089+0530] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-01T15:13:03.090+0530] {manager.py:485} INFO - Checking for new files in /home/adminabhi/gitrepo/dish-second-course/src/etl every 300 seconds
+[2025-11-01T15:13:03.090+0530] {manager.py:821} INFO - Searching for files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:13:03.093+0530] {manager.py:824} INFO - There are 1 files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:13:03.751+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.61s           2025-11-01T09:43:03                      34
+================================================================================
+[2025-11-01T15:13:33.311+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.61s           2025-11-01T09:43:03                      34
+================================================================================
+[2025-11-01T15:14:02.619+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.41s           2025-11-01T09:43:34                      12
+================================================================================
+[2025-11-01T15:14:47.103+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.31s           2025-11-01T09:44:47                      12
+================================================================================
+[2025-11-01T15:16:14.822+0530] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-01T15:16:15.031+0530] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-01T15:16:15.032+0530] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-01T15:16:15.032+0530] {manager.py:485} INFO - Checking for new files in /home/adminabhi/gitrepo/dish-second-course/src/etl every 300 seconds
+[2025-11-01T15:16:15.032+0530] {manager.py:821} INFO - Searching for files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:16:15.038+0530] {manager.py:824} INFO - There are 1 files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:16:15.381+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.31s           2025-11-01T09:46:15                      12
+================================================================================
+[2025-11-01T15:18:21.339+0530] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-01T15:18:21.501+0530] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-01T15:18:21.501+0530] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-01T15:18:21.501+0530] {manager.py:485} INFO - Checking for new files in /home/adminabhi/gitrepo/dish-second-course/src/etl every 300 seconds
+[2025-11-01T15:18:21.501+0530] {manager.py:821} INFO - Searching for files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:18:21.509+0530] {manager.py:824} INFO - There are 1 files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:18:22.063+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.51s           2025-11-01T09:48:22                      12
+================================================================================
+[2025-11-01T15:19:14.492+0530] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2025-11-01T15:19:14.616+0530] {manager.py:483} INFO - Processing files using up to 1 processes at a time 
+[2025-11-01T15:19:14.616+0530] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-11-01T15:19:14.617+0530] {manager.py:485} INFO - Checking for new files in /home/adminabhi/gitrepo/dish-second-course/src/etl every 300 seconds
+[2025-11-01T15:19:14.617+0530] {manager.py:821} INFO - Searching for files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:19:14.619+0530] {manager.py:824} INFO - There are 1 files in /home/adminabhi/gitrepo/dish-second-course/src/etl
+[2025-11-01T15:19:14.980+0530] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+------------------------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/home/adminabhi/gitrepo/dish-second-course/src/etl/etl_google_analytics_dag.py                           1           0  0.31s           2025-11-01T09:49:14                      12
+================================================================================
+[2025-11-01T15:19:26.119+0530] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15

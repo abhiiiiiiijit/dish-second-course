@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 from collections import defaultdict
 
-from src.etl.api_client import get_daily_visits, get_ga_sessions
+from api_client import get_daily_visits, get_ga_sessions
 
 # === Logging Configuration ===
 logging.basicConfig(
@@ -131,7 +131,7 @@ def fetch_daily_visits_by_date(
                 start_date.date(), end_date.date())
 
     current_date = start_date
-    while current_date < end_date:
+    while current_date <= end_date:
         date_str = current_date.strftime(DATE_FORMAT)
         logger.info("Fetching Daily Visits for date %s...", date_str)
 
@@ -169,7 +169,7 @@ def fetch_ga_sessions_by_date(
                 start_date.date(), end_date.date())
 
     current_date = start_date
-    while current_date < end_date:
+    while current_date <= end_date:
         date_str = current_date.strftime("%Y%m%d")
         logger.info("Fetching GA Sessions for date %s...", date_str)
 

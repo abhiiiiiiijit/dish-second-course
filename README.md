@@ -43,6 +43,17 @@ airflow db reset
 
 airflow standalone
 
+------------------
+Docker
+
+docker build -t data-pipeline:latest .
+
+docker run --rm \
+  -e GCP_PROJECT="dish-second-course" \
+  -e GOOGLE_APPLICATION_CREDENTIALS="/app/infra/keys/service-account.json" \
+  -e API_KEY="AIzaSyDMMWBOHgMG1u7P9jX9neaUQHY2vwlBTbM" \
+  -v $(pwd)/infra/keys:/app/infra/keys \
+  data-pipeline:latest --start-date 2016-08-01     --end-date 2016-08-01
 
 
 

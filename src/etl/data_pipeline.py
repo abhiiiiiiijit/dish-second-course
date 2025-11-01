@@ -1,5 +1,5 @@
-from src.etl.data_extractor import fetch_daily_visits_by_date, fetch_ga_sessions_by_date
-from src.etl.bq_data_load import process_directory_by_date_range
+from data_extractor import fetch_daily_visits_by_date, fetch_ga_sessions_by_date#src.etl.
+from bq_data_load import process_directory_by_date_range #src.etl.
 from datetime import datetime
 from datetime import datetime
 import argparse
@@ -43,26 +43,26 @@ if __name__ == "__main__":
         help="Record limit per API call. Default: 50"
     )
 
-    parser.add_argument(
-        "--base-path",
-        type=str,
-        default="data/ga_sessions/",
-        help="Base directory for local storage. Default: data/ga_sessions/"
-    )
+    # parser.add_argument(
+    #     "--base-path",
+    #     type=str,
+    #     default="data/ga_sessions/",
+    #     help="Base directory for local storage. Default: data/ga_sessions/"
+    # )
 
-    parser.add_argument(
-        "--project-id",
-        type=str,
-        default="dish-second-course",
-        help="BigQuery Project ID. Default: dish-second-course"
-    )
+    # parser.add_argument(
+    #     "--project-id",
+    #     type=str,
+    #     default="dish-second-course",
+    #     help="BigQuery Project ID. Default: dish-second-course"
+    # )
 
-    parser.add_argument(
-        "--table-id",
-        type=str,
-        default="dish-second-course.analytics.ga_sessions",
-        help="BigQuery Table ID. Default: dish-second-course.analytics.ga_sessions"
-    )
+    # parser.add_argument(
+    #     "--table-id",
+    #     type=str,
+    #     default="dish-second-course.analytics.ga_sessions",
+    #     help="BigQuery Table ID. Default: dish-second-course.analytics.ga_sessions"
+    # )
 
     args = parser.parse_args()
 
@@ -76,9 +76,9 @@ if __name__ == "__main__":
     logging.info(f"Start date: {start_date}")
     logging.info(f"End date (exclusive): {end_date}")
     logging.info(f"Limit: {args.limit}")
-    logging.info(f"Base path: {args.base_path}")
-    logging.info(f"Project ID: {args.project_id}")
-    logging.info(f"Table ID: {args.table_id}")
+    # logging.info(f"Base path: {args.base_path}")
+    # logging.info(f"Project ID: {args.project_id}")
+    # logging.info(f"Table ID: {args.table_id}")
 
     # -----------------------------------------------------------
     # Fetch Daily Visits
@@ -101,16 +101,30 @@ if __name__ == "__main__":
     # -----------------------------------------------------------
     # Load into BigQuery
     # -----------------------------------------------------------
+    start_date = start_date.strftime("%Y-%m-%d")
+    end_date = end_date.strftime("%Y-%m-%d")
     try:
         process_directory_by_date_range(
-            base_path=args.base_path,
-            project_id=args.project_id,
-            table_id=args.table_id,
+            base_path='data/daily_visits/',
+            project_id='dish-second-course',
+            table_id='dish-second-course.analytics.daily_visits',
             start_date=start_date,
             end_date=end_date,
         )
-        logging.info("Data successfully loaded into BigQuery.")
+        logging.info("Daily Visits Data successfully loaded into BigQuery.")
     except Exception as e:
-        logging.error(f"Error loading data into BigQuery: {e}", exc_info=True)
+        logging.error(f"Error loading daily visit data into BigQuery: {e}", exc_info=True)
+
+    try:
+        process_directory_by_date_range(
+            base_path='data/ga_sessions/',
+            project_id='dish-second-course',
+            table_id='dish-second-course.analytics.ga_sessions',
+            start_date=start_date,
+            end_date=end_date,
+        )
+        logging.info("GA Session Data successfully loaded into BigQuery.")
+    except Exception as e:
+        logging.error(f"Error loading ga session data into BigQuery: {e}", exc_info=True)
 
     logging.info("ETL process completed.")

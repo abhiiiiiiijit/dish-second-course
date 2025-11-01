@@ -57,13 +57,13 @@ The script accepts optional CLI arguments:
 ### Example execution
 
 ``` sh
-python data_pipeline.py     --start-date 2016-08-01     --end-date 2016-08-07     --limit 50   --base-path data/ga_sessions/     --project-id dish-second-course     --table-id dish-second-course.analytics.ga_sessions
+ python3 src/etl/data_pipeline.py --start-date 2016-08-01     --end-date 2016-08-03     --limit 50 
 ```
 
 Run with defaults:
 
 ``` sh
-python data_pipeline.py
+python3 data_pipeline.py
 ```
 
 ------------------------------------------------------------------------

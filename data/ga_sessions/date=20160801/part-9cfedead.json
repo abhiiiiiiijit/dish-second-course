@@ -41729,81 +41729,6 @@
     "visitStartTime": 1470087435
   },
   {
-    "channelGrouping": "Direct",
-    "customDimensions": [
-      {
-        "index": 4,
-        "value": "North America"
-      }
-    ],
-    "date": "20160801",
-    "device": {
-      "browser": "Chrome",
-      "isMobile": true,
-      "operatingSystem": "Android"
-    },
-    "fullVisitorId": "1630080920415753288",
-    "geoNetwork": {
-      "city": "not available in demo dataset",
-      "cityId": "not available in demo dataset",
-      "continent": "Americas",
-      "country": "United States",
-      "latitude": "not available in demo dataset",
-      "longitude": "not available in demo dataset",
-      "metro": "not available in demo dataset",
-      "networkDomain": "rr.com",
-      "networkLocation": "not available in demo dataset",
-      "region": "not available in demo dataset",
-      "subContinent": "Northern America"
-    },
-    "hits_sample": [
-      {
-        "hitNumber": 1,
-        "hostname": "shop.googlemerchandisestore.com",
-        "isInteraction": true,
-        "pagePath": "/home",
-        "pageTitle": "Home",
-        "time": 0,
-        "type": "PAGE"
-      },
-      {
-        "hitNumber": 2,
-        "hostname": "shop.googlemerchandisestore.com",
-        "isInteraction": true,
-        "pagePath": "/google+redesign/drinkware",
-        "pageTitle": "Drinkware",
-        "time": 6046,
-        "type": "PAGE"
-      },
-      {
-        "hitNumber": 3,
-        "hostname": "shop.googlemerchandisestore.com",
-        "isInteraction": true,
-        "pagePath": "/google+redesign/electronics",
-        "pageTitle": "Electronics",
-        "time": 89150,
-        "type": "PAGE"
-      }
-    ],
-    "totals": {
-      "bounces": null,
-      "hits": 10,
-      "newVisits": 1,
-      "pageviews": 8,
-      "visits": 1
-    },
-    "trafficSource": {
-      "adContent": null,
-      "keyword": null,
-      "medium": "(none)",
-      "referralPath": null,
-      "source": "(direct)"
-    },
-    "visitId": 1470087306,
-    "visitNumber": 1,
-    "visitStartTime": 1470087306
-  },
-  {
     "channelGrouping": "Referral",
     "customDimensions": [
       {
@@ -41876,6 +41801,81 @@
     },
     "visitId": 1470087306,
     "visitNumber": 3,
+    "visitStartTime": 1470087306
+  },
+  {
+    "channelGrouping": "Direct",
+    "customDimensions": [
+      {
+        "index": 4,
+        "value": "North America"
+      }
+    ],
+    "date": "20160801",
+    "device": {
+      "browser": "Chrome",
+      "isMobile": true,
+      "operatingSystem": "Android"
+    },
+    "fullVisitorId": "1630080920415753288",
+    "geoNetwork": {
+      "city": "not available in demo dataset",
+      "cityId": "not available in demo dataset",
+      "continent": "Americas",
+      "country": "United States",
+      "latitude": "not available in demo dataset",
+      "longitude": "not available in demo dataset",
+      "metro": "not available in demo dataset",
+      "networkDomain": "rr.com",
+      "networkLocation": "not available in demo dataset",
+      "region": "not available in demo dataset",
+      "subContinent": "Northern America"
+    },
+    "hits_sample": [
+      {
+        "hitNumber": 1,
+        "hostname": "shop.googlemerchandisestore.com",
+        "isInteraction": true,
+        "pagePath": "/home",
+        "pageTitle": "Home",
+        "time": 0,
+        "type": "PAGE"
+      },
+      {
+        "hitNumber": 2,
+        "hostname": "shop.googlemerchandisestore.com",
+        "isInteraction": true,
+        "pagePath": "/google+redesign/drinkware",
+        "pageTitle": "Drinkware",
+        "time": 6046,
+        "type": "PAGE"
+      },
+      {
+        "hitNumber": 3,
+        "hostname": "shop.googlemerchandisestore.com",
+        "isInteraction": true,
+        "pagePath": "/google+redesign/electronics",
+        "pageTitle": "Electronics",
+        "time": 89150,
+        "type": "PAGE"
+      }
+    ],
+    "totals": {
+      "bounces": null,
+      "hits": 10,
+      "newVisits": 1,
+      "pageviews": 8,
+      "visits": 1
+    },
+    "trafficSource": {
+      "adContent": null,
+      "keyword": null,
+      "medium": "(none)",
+      "referralPath": null,
+      "source": "(direct)"
+    },
+    "visitId": 1470087306,
+    "visitNumber": 1,
     "visitStartTime": 1470087306
   },
   {
@@ -86470,27 +86470,27 @@
     "visitStartTime": 1470063556
   },
   {
-    "channelGrouping": "Organic Search",
+    "channelGrouping": "Social",
     "customDimensions": [],
     "date": "20160801",
     "device": {
-      "browser": "Firefox",
+      "browser": "Chrome",
       "isMobile": false,
       "operatingSystem": "Windows"
     },
-    "fullVisitorId": "9333275846835376480",
+    "fullVisitorId": "2645609099951382287",
     "geoNetwork": {
       "city": "not available in demo dataset",
       "cityId": "not available in demo dataset",
       "continent": "Europe",
-      "country": "Slovakia",
+      "country": "Macedonia (FYROM)",
       "latitude": "not available in demo dataset",
       "longitude": "not available in demo dataset",
       "metro": "not available in demo dataset",
-      "networkDomain": "t-com.sk",
+      "networkDomain": "com.mk",
       "networkLocation": "not available in demo dataset",
       "region": "not available in demo dataset",
-      "subContinent": "Eastern Europe"
+      "subContinent": "Southern Europe"
     },
     "hits_sample": [
       {
@@ -86512,10 +86512,10 @@
     },
     "trafficSource": {
       "adContent": null,
-      "keyword": "(not provided)",
-      "medium": "organic",
-      "referralPath": null,
-      "source": "google"
+      "keyword": null,
+      "medium": "referral",
+      "referralPath": "/yt/about/",
+      "source": "youtube.com"
     },
     "visitId": 1470063556,
     "visitNumber": 1,

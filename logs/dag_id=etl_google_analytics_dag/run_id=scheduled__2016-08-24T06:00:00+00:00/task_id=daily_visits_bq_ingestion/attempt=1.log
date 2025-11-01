@@ -1,0 +1,63 @@
+[2025-11-01T04:06:09.799+0530] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-01T04:06:09.809+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_bq_ingestion scheduled__2016-08-24T06:00:00+00:00 [queued]>
+[2025-11-01T04:06:09.815+0530] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_google_analytics_dag.daily_visits_bq_ingestion scheduled__2016-08-24T06:00:00+00:00 [queued]>
+[2025-11-01T04:06:09.815+0530] {taskinstance.py:2866} INFO - Starting attempt 1 of 3
+[2025-11-01T04:06:09.841+0530] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): daily_visits_bq_ingestion> on 2016-08-24 06:00:00+00:00
+[2025-11-01T04:06:09.845+0530] {standard_task_runner.py:72} INFO - Started process 144744 to run task
+[2025-11-01T04:06:09.848+0530] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'etl_google_analytics_dag', 'daily_visits_bq_ingestion', 'scheduled__2016-08-24T06:00:00+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/etl_google_analytics_dag.py', '--cfg-path', '/tmp/tmpi_3a6fns']
+[2025-11-01T04:06:09.854+0530] {standard_task_runner.py:105} INFO - Job 16: Subtask daily_visits_bq_ingestion
+[2025-11-01T04:06:09.903+0530] {task_command.py:467} INFO - Running <TaskInstance: etl_google_analytics_dag.daily_visits_bq_ingestion scheduled__2016-08-24T06:00:00+00:00 [running]> on host Abhijit.
+[2025-11-01T04:06:09.982+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_google_analytics_dag' AIRFLOW_CTX_TASK_ID='daily_visits_bq_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2016-08-24T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2016-08-24T06:00:00+00:00'
+[2025-11-01T04:06:09.983+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-01T04:06:10.058+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-17
+[2025-11-01T04:06:10.059+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-17/part-2636b844.json
+[2025-11-01T04:06:10.059+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:15.828+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:15.830+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-17/part-feeebfad.json
+[2025-11-01T04:06:15.830+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:21.437+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:21.439+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-18
+[2025-11-01T04:06:21.441+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-18/part-c5a468f6.json
+[2025-11-01T04:06:21.441+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:27.311+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:27.312+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-18/part-f81e9b59.json
+[2025-11-01T04:06:27.312+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:32.973+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:32.974+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-19
+[2025-11-01T04:06:32.976+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-19/part-329f0416.json
+[2025-11-01T04:06:32.977+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:38.280+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:38.313+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-19/part-ed940a8f.json
+[2025-11-01T04:06:38.313+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:55.339+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:06:55.339+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-20
+[2025-11-01T04:06:55.342+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-20/part-3f7ac52c.json
+[2025-11-01T04:06:55.343+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:00.176+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:00.178+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-20/part-e4457754.json
+[2025-11-01T04:07:00.179+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:04.927+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:04.928+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-21
+[2025-11-01T04:07:04.969+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-21/part-4f9233e8.json
+[2025-11-01T04:07:04.970+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:10.395+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:10.396+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-21/part-9b769d0e.json
+[2025-11-01T04:07:10.396+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:15.994+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:15.995+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-22
+[2025-11-01T04:07:15.996+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-22/part-3ebca014.json
+[2025-11-01T04:07:15.996+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:20.533+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:20.534+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-22/part-dbf61ec7.json
+[2025-11-01T04:07:20.534+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:26.620+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:26.621+0530] {bq_data_load.py:151} INFO - 📂 Processing directory: data/daily_visits/date=2016-08-23
+[2025-11-01T04:07:26.622+0530] {bq_data_load.py:56} INFO - Loaded 1 records from data/daily_visits/date=2016-08-23/part-96c361d2.json
+[2025-11-01T04:07:26.622+0530] {bq_data_load.py:91} INFO - 📤 Loading 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:31.725+0530] {bq_data_load.py:111} INFO - ✅ Successfully loaded 1 rows into dish-second-course.analytics.daily_visits
+[2025-11-01T04:07:31.725+0530] {python.py:240} INFO - Done. Returned value was: None
+[2025-11-01T04:07:31.730+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-01T04:07:31.730+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=etl_google_analytics_dag, task_id=daily_visits_bq_ingestion, run_id=scheduled__2016-08-24T06:00:00+00:00, execution_date=20160824T060000, start_date=20251031T223609, end_date=20251031T223731
+[2025-11-01T04:07:31.760+0530] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-01T04:07:31.775+0530] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-01T04:07:31.790+0530] {local_task_job_runner.py:245} INFO - ::endgroup::
